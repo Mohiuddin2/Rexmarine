@@ -52,7 +52,7 @@ export default function HeroSection() {
               <div className="flex items-center gap-4">
                 <div className="h-px w-16 bg-gradient-to-r from-[#3a67e2] to-transparent" />
                 <span className="text-[#3a67e2] text-sm font-mono uppercase tracking-widest">
-                  Est. 2025
+                  Est.. 2025
                 </span>
               </div>
 
