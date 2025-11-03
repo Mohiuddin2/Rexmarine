@@ -20,7 +20,7 @@ export default function Header() {
   const navLinks = [
     { name: "SERVICES" },
     { name: "SHIPPING RATES" },
-    { name: "SCHEDULE" },
+    { name: "SCHEDULE", href: "/schedule" },
     { name: "CONTACT" },
   ];
 
@@ -53,7 +53,7 @@ export default function Header() {
             {navLinks.map((link, index) => (
               <motion.a
                 key={link.name}
-                // href={link.href}
+                href={link.href ?? "#"}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * index }}
@@ -102,11 +102,11 @@ export default function Header() {
               {navLinks.map((link) => (
                 <a
                   key={link.name}
-                  // href={link.href}
+                  href={link.href ?? "#"}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="text-gray-400 hover:text-white font-bold text-sm tracking-widest"
                 >
-                  {link.name}
+                  {link.name} 
                 </a>
               ))}
               <Button className="bg-[#3a67e2] hover:bg-[#3a67e2]/90 text-black font-bold rounded-none w-full">
