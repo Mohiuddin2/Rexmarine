@@ -101,7 +101,7 @@ const UserSchema = new Schema<IUser>(
 );
 
 // Indexes
-UserSchema.index({ email: 1 }, { unique: true });
+// Note: `email` already has `unique: true` at the path level; avoid duplicate index
 UserSchema.index({ "company.partnerId": 1 }, { unique: true, sparse: true }); // unique when present
 UserSchema.index({ "address.country": 1, "address.state": 1, "address.city": 1 });
 UserSchema.index({ createdAt: -1 });
