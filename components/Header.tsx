@@ -20,11 +20,7 @@ export default function Header() {
   const navLinks = [
     { name: "SERVICES" },
     { name: "SHIPPING RATES" },
-<<<<<<< HEAD
     { name: "SCHEDULE", href: "/schedule" },
-=======
-    { name: "SCHEDULE" },
->>>>>>> d7a28692aa592a3d91b0c8d880d37b4770f02ba9
     { name: "CONTACT" },
   ];
 
@@ -57,19 +53,11 @@ export default function Header() {
             {navLinks.map((link, index) => (
               <motion.a
                 key={link.name}
-<<<<<<< HEAD
                 href={link.href ?? "#"}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * index }}
-                className="text-xs font-bold text-gray-400 hover:text-white transition-colors tracking-widest"
-=======
-                // href={link.href}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * index }}
                 className="text-xs font-bold text-gray-300 hover:text-white transition-colors tracking-widest"
->>>>>>> d7a28692aa592a3d91b0c8d880d37b4770f02ba9
               >
                 {link.name}
               </motion.a>
@@ -114,19 +102,11 @@ export default function Header() {
               {navLinks.map((link) => (
                 <a
                   key={link.name}
-<<<<<<< HEAD
                   href={link.href ?? "#"}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="text-gray-400 hover:text-white font-bold text-sm tracking-widest"
                 >
-                  {link.name} 
-=======
-                  // href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-gray-400 hover:text-white font-bold text-sm tracking-widest"
-                >
                   {link.name}
->>>>>>> d7a28692aa592a3d91b0c8d880d37b4770f02ba9
                 </a>
               ))}
               <Button className="bg-[#3a67e2] hover:bg-[#3a67e2]/90 text-black font-bold rounded-none w-full">

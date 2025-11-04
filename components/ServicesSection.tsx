@@ -44,11 +44,7 @@ export default function ServicesSection() {
     <section
       id="services"
       ref={ref}
-<<<<<<< HEAD
-      className="py-32 bg-black relative overflow-hidden"
-=======
       className="py-32 bg-[#0B192C] relative overflow-hidden"
->>>>>>> d7a28692aa592a3d91b0c8d880d37b4770f02ba9
     >
       <div className="absolute top-0 right-0 w-1/2 h-1 bg-gradient-to-l from-[#3a67e2] to-transparent" />
 
@@ -86,11 +82,7 @@ export default function ServicesSection() {
                 style={{ background: `${service.color}20` }}
               />
 
-<<<<<<< HEAD
-              <div className="relative border-2 border-white/10 p-12 hover:border-white/30 transition-all duration-500 bg-black">
-=======
               <div className="relative border-2 border-white/10 p-12 hover:border-white/30 transition-all duration-500 bg-[#0B192C]">
->>>>>>> d7a28692aa592a3d91b0c8d880d37b4770f02ba9
                 <div className="flex items-start justify-between mb-8">
                   <service.icon
                     className="w-16 h-16 group-hover:scale-110 transition-transform duration-500"
