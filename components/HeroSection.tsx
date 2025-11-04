@@ -17,7 +17,20 @@ export default function HeroSection() {
   }, []);
 
   return (
+<<<<<<< HEAD
     <section className="relative min-h-screen flex items-center overflow-hidden bg-[#0A0A0A]">
+=======
+    <section
+      className="relative min-h-screen flex items-center overflow-hidden bg-[#0A0A0A]"
+      style={{
+        backgroundImage: "url('/images/ship.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundColor: "#0A0A0A",
+      }}
+    >
+>>>>>>> d7a28692aa592a3d91b0c8d880d37b4770f02ba9
       <div
         className="absolute inset-0 opacity-30"
         style={{
@@ -25,6 +38,12 @@ export default function HeroSection() {
         }}
       />
 
+<<<<<<< HEAD
+=======
+      {/* Dark overlay to improve contrast between background image and content */}
+      <div className="absolute inset-0 bg-black/40" />
+
+>>>>>>> d7a28692aa592a3d91b0c8d880d37b4770f02ba9
       <div className="absolute top-0 right-0 w-[40%] h-full bg-gradient-to-bl from-[#3a67e2]/10 to-transparent" />
       <div className="absolute bottom-0 left-0 w-[30%] h-[60%] bg-gradient-to-tr from-[#00D9FF]/10 to-transparent" />
 
@@ -40,7 +59,11 @@ export default function HeroSection() {
               <div className="flex items-center gap-4">
                 <div className="h-px w-16 bg-gradient-to-r from-[#3a67e2] to-transparent" />
                 <span className="text-[#3a67e2] text-sm font-mono uppercase tracking-widest">
+<<<<<<< HEAD
                   Est. 2025
+=======
+                  Est.. 2025
+>>>>>>> d7a28692aa592a3d91b0c8d880d37b4770f02ba9
                 </span>
               </div>
 
@@ -49,10 +72,17 @@ export default function HeroSection() {
                 <br />
                 <span className="text-[#3a67e2] italic">ANYTHING</span>
                 <br />
+<<<<<<< HEAD
                 <span className="text-white/20">ANYWHERE</span>
               </h1>
 
               <p className="text-2xl text-gray-400 max-w-xl font-light leading-relaxed">
+=======
+                <span className="text-white/70">ANYWHERE</span>
+              </h1>
+
+              <p className="text-2xl text-gray-200 max-w-xl font-light leading-relaxed">
+>>>>>>> d7a28692aa592a3d91b0c8d880d37b4770f02ba9
                 Caribbean&apos;s most audacious cargo service. Fast, fearless,
                 and ridiculously reliable.
               </p>
@@ -84,7 +114,11 @@ export default function HeroSection() {
                     <div className="text-4xl font-black text-[#3a67e2]">
                       {stat.num}
                     </div>
+<<<<<<< HEAD
                     <div className="text-xs text-gray-500 font-mono mt-1">
+=======
+                    <div className="text-xs text-gray-300 font-mono mt-1">
+>>>>>>> d7a28692aa592a3d91b0c8d880d37b4770f02ba9
                       {stat.label}
                     </div>
                   </div>
