@@ -5,8 +5,10 @@ import { Button } from "@/components/ui/button";
 import { Ship, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { useSession, signOut } from "next-auth/react";
 
 export default function Header() {
+  const { data: session } = useSession();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -73,11 +75,27 @@ export default function Header() {
             <Button className="bg-[#3a67e2] hover:bg-[#3a67e2]/90 text-black font-bold rounded-none">
               GET QUOTE
             </Button>
-            <Link href="/register">
-              <Button className="border-2 border-[#3a67e2] hover:bg-blue-50 transition-all duration-300 ease-in-out text-[#3a67e2] font-bold rounded-none">
-                Create Account
+            {!session?.user ? (
+              <>
+                <Link href="/signin">
+                  <Button className="border-2 border-[#3a67e2] hover:bg-blue-50 transition-all duration-300 ease-in-out text-[#3a67e2] font-bold rounded-none">
+                    Sign In
+                  </Button>
+                </Link>
+                <Link href="/register">
+                  <Button className="border-2 border-[#3a67e2] hover:bg-blue-50 transition-all duration-300 ease-in-out text-[#3a67e2] font-bold rounded-none">
+                    Create Account
+                  </Button>
+                </Link>
+              </>
+            ) : (
+              <Button
+                onClick={() => signOut({ callbackUrl: "/" })}
+                className="border-2 border-[#3a67e2] hover:bg-blue-50 transition-all duration-300 ease-in-out text-[#3a67e2] font-bold rounded-none"
+              >
+                Sign Out
               </Button>
-            </Link>
+            )}
           </motion.div>
 
           <button
@@ -115,11 +133,30 @@ export default function Header() {
               <Button className="bg-[#3a67e2] hover:bg-[#3a67e2]/90 text-black font-bold rounded-none w-full">
                 GET QUOTE
               </Button>
-              <Link href="/register" onClick={() => setIsMobileMenuOpen(false)}>
-                <Button className="border-2 border-[#3a67e2] text-[#3a67e2] font-bold rounded-none w-full hover:bg-blue-50">
-                  Create Account
+              {!session?.user ? (
+                <>
+                  <Link href="/signin" onClick={() => setIsMobileMenuOpen(false)}>
+                    <Button className="border-2 border-[#3a67e2] text-[#3a67e2] font-bold rounded-none w-full hover:bg-blue-50">
+                      Sign In
+                    </Button>
+                  </Link>
+                  <Link href="/register" onClick={() => setIsMobileMenuOpen(false)}>
+                    <Button className="border-2 border-[#3a67e2] text-[#3a67e2] font-bold rounded-none w-full hover:bg-blue-50">
+                      Create Account
+                    </Button>
+                  </Link>
+                </>
+              ) : (
+                <Button
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    signOut({ callbackUrl: "/" });
+                  }}
+                  className="border-2 border-[#3a67e2] text-[#3a67e2] font-bold rounded-none w-full hover:bg-blue-50"
+                >
+                  Sign Out
                 </Button>
-              </Link>
+              )}
             </nav>
           </motion.div>
         )}
