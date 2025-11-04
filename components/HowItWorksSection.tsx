@@ -34,9 +34,9 @@ export default function HowItWorksSection() {
     <section
       id="process"
       ref={ref}
-      className="py-32 bg-[#0B192C] relative overflow-hidden"
+      className="py-32 bg-gray-50 relative overflow-hidden"
     >
-      <div className="absolute top-1/2 left-0 w-1 h-1/2 bg-gradient-to-b from-[#3a67e2] to-transparent" />
+      <div className="absolute top-1/2 left-0 w-1 h-1/2 bg-gradient-to-b from-lime-500 to-transparent" />
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <motion.div
@@ -46,28 +46,28 @@ export default function HowItWorksSection() {
         >
           <div className="lg:col-span-5">
             <div className="flex items-center gap-4 mb-8">
-              <div className="h-px w-16 bg-gradient-to-r from-[#00D9FF] to-transparent" />
-              <span className="text-[#00D9FF] text-xs font-mono uppercase tracking-widest">
+              <div className="h-px w-16 bg-gradient-to-r from-lime-500 to-transparent" />
+              <span className="text-lime-600 text-xs font-mono uppercase tracking-widest">
                 Process
               </span>
             </div>
 
-            <h2 className="text-6xl md:text-7xl font-black text-white leading-none mb-8">
+            <h2 className="text-6xl md:text-7xl font-black text-gray-900 leading-none mb-8">
               HOW IT
               <br />
-              <span className="text-white/20">WORKS</span>
+              <span className="text-gray-400">WORKS</span>
             </h2>
 
-            <p className="text-xl text-gray-400 font-light mb-12">
+            <p className="text-xl text-gray-600 font-light mb-12">
               Four steps. Zero stress. Maximum results. That&apos;s the
               REXMARINE way.
             </p>
 
-            <div className="border-2 border-white/10 p-8">
+            <div className="border-2 border-lime-500 p-8 bg-white shadow-lg">
               <div className="text-xs text-gray-500 font-mono mb-2">
                 AVERAGE TIME
               </div>
-              <div className="text-5xl font-black text-[#3a67e2]">2-5 DAYS</div>
+              <div className="text-5xl font-black text-lime-600">2-5 DAYS</div>
             </div>
           </div>
 
@@ -80,22 +80,22 @@ export default function HowItWorksSection() {
                 transition={{ duration: 0.6, delay: index * 0.15 }}
                 className="group"
               >
-                <div className="border-2 border-white/10 hover:border-[#3a67e2] transition-all duration-500 p-8 bg-[#0B192C]/50">
+                <div className="border-2 border-gray-200 hover:border-lime-400 transition-all duration-500 p-8 bg-white shadow-lg hover:shadow-xl">
                   <div className="flex items-start gap-8">
-                    <div className="text-7xl font-black text-white/10 group-hover:text-[#3a67e2]/20 transition-colors duration-500 leading-none">
+                    <div className="text-7xl font-black text-gray-300 group-hover:text-lime-400 transition-colors duration-500 leading-none">
                       {step.num}
                     </div>
 
                     <div className="flex-1">
-                      <h3 className="text-3xl font-black text-white mb-3 leading-none">
+                      <h3 className="text-3xl font-black text-gray-900 mb-3 leading-none">
                         {step.title}
                       </h3>
-                      <p className="text-lg text-gray-400 font-light">
+                      <p className="text-lg text-gray-600 font-light">
                         {step.desc}
                       </p>
                     </div>
 
-                    <div className="hidden md:block w-12 h-12 border-2 border-white/10 group-hover:border-[#3a67e2] group-hover:rotate-45 transition-all duration-500" />
+                    <div className="hidden md:block w-12 h-12 border-2 border-gray-200 group-hover:border-lime-500 group-hover:rotate-45 transition-all duration-500" />
                   </div>
                 </div>
               </motion.div>
@@ -104,7 +104,7 @@ export default function HowItWorksSection() {
         </motion.div>
       </div>
 
-      <div className="absolute bottom-0 right-0 w-1/2 h-1 bg-gradient-to-l from-[#00D9FF] to-transparent" />
+      <div className="absolute bottom-0 right-0 w-1/2 h-1 bg-gradient-to-l from-lime-500 to-transparent" />
     </section>
   );
 }
