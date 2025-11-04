@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import clientPromise from "@/lib/mongodb";
-import { hash } from "bcryptjs";
+import connectToDatabase from "@/lib/mongoose";
+import User from "@/models/User";
 import { z } from "zod";
 
 // Fields inspired by Tropical registration form
@@ -29,6 +29,8 @@ const schema = z.object({
 
 export async function POST(req: Request) {
   try {
+    await connectToDatabase();
+
     const body = await req.json();
     const parsed = schema.safeParse(body);
     if (!parsed.success) {
@@ -56,11 +58,7 @@ export async function POST(req: Request) {
       truckNumber,
     } = parsed.data;
 
-    const client = await clientPromise;
-    const db = client.db();
-    const users = db.collection("users");
-
-    const exists = await users.findOne({ email });
+    const exists = await User.findOne({ email });
     if (exists) {
       return NextResponse.json(
         { error: "Email already registered" },
@@ -68,11 +66,9 @@ export async function POST(req: Request) {
       );
     }
 
-    const passwordHash = await hash(password, 12);
-    const now = new Date();
-    const { insertedId } = await users.insertOne({
+    const user = new User({
       email,
-      password: passwordHash,
+      password, // will be hashed by pre-save hook
       name: `${firstName} ${lastName}`.trim(),
       firstName,
       lastName,
@@ -91,11 +87,11 @@ export async function POST(req: Request) {
         partnerId,
         truckNumber,
       },
-      createdAt: now,
-      updatedAt: now,
     });
 
-    return NextResponse.json({ id: String(insertedId) }, { status: 201 });
+    await user.save();
+
+    return NextResponse.json({ id: user.id }, { status: 201 });
   } catch (e) {
     return NextResponse.json({ error: "Server error" }, { status: 500 });
   }

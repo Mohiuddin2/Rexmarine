@@ -1,35 +1,37 @@
-import NextAuth, { type NextAuthConfig } from "next-auth";
+import NextAuth, { type NextAuthOptions } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import clientPromise from "@/lib/mongodb";
-import { compare } from "bcryptjs";
+import connectToDatabase from "@/lib/mongoose";
+import User from "@/models/User";
 import { z } from "zod";
-import { ObjectId } from "mongodb";
 
 const credentialsSchema = z.object({
   email: z.string().email(),
   password: z.string().min(6),
 });
 
-export const authConfig: NextAuthConfig = {
+export const authOptions: NextAuthOptions = {
   session: { strategy: "jwt" },
   providers: [
     Credentials({
       name: "Credentials",
+      credentials: {
+        email: { label: "Email", type: "email" },
+        password: { label: "Password", type: "password" },
+      },
       async authorize(raw) {
-        const parsed = credentialsSchema.safeParse(raw);
+        const parsed = credentialsSchema.safeParse(raw || {});
         if (!parsed.success) return null;
         const { email, password } = parsed.data;
 
-        const client = await clientPromise;
-        const db = client.db();
-        const user = await db.collection("users").findOne({ email });
+        await connectToDatabase();
+        const user = await User.findOne({ email }).select("+password");
         if (!user || !user.password) return null;
 
-        const ok = await compare(password, user.password);
+        const ok = await user.comparePassword(password);
         if (!ok) return null;
 
         return {
-          id: String(user._id ?? new ObjectId()),
+          id: user.id,
           name: user.name ?? null,
           email: user.email,
           image: user.image ?? null,
@@ -49,5 +51,6 @@ export const authConfig: NextAuthConfig = {
   },
 };
 
-export const { handlers, auth, signIn, signOut } = NextAuth(authConfig);
+const handler = NextAuth(authOptions);
+export { handler as GET, handler as POST };
 

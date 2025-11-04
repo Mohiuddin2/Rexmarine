@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Ship, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -72,9 +73,11 @@ export default function Header() {
             <Button className="bg-[#3a67e2] hover:bg-[#3a67e2]/90 text-black font-bold rounded-none">
               GET QUOTE
             </Button>
-            <Button className="border-2 border-[#3a67e2] hover:bg-blue-50 transition-all duration-300 ease-in-out text-[#3a67e2] font-bold rounded-none">
-              Create Account
-            </Button>
+            <Link href="/register">
+              <Button className="border-2 border-[#3a67e2] hover:bg-blue-50 transition-all duration-300 ease-in-out text-[#3a67e2] font-bold rounded-none">
+                Create Account
+              </Button>
+            </Link>
           </motion.div>
 
           <button
@@ -112,9 +115,11 @@ export default function Header() {
               <Button className="bg-[#3a67e2] hover:bg-[#3a67e2]/90 text-black font-bold rounded-none w-full">
                 GET QUOTE
               </Button>
-              <Button className="bg-[#3a67e2] hover:bg-[#3a67e2]/90 text-black font-bold rounded-none w-full">
-                GET QUOTE
-              </Button>
+              <Link href="/register" onClick={() => setIsMobileMenuOpen(false)}>
+                <Button className="border-2 border-[#3a67e2] text-[#3a67e2] font-bold rounded-none w-full hover:bg-blue-50">
+                  Create Account
+                </Button>
+              </Link>
             </nav>
           </motion.div>
         )}
