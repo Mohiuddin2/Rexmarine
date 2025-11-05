@@ -34,8 +34,8 @@ export default function Header() {
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/95 backdrop-blur-xl border-b border-gray-200 shadow-lg"
-          : "bg-transparent"
+          ? "bg-white/95 backdrop-blur-xl border-b border-gray-200 shadow-lg text-black"
+          : "bg-transparent text-white"
       }`}
     >
       <div className="container mx-auto px-6 lg:px-12">
@@ -48,10 +48,7 @@ export default function Header() {
             <div className="w-10 h-10 bg-lime-500 flex items-center justify-center">
               <Ship className="h-5 w-5 text-white rotate-45" />
             </div>
-            <Link
-              href="/"
-              className="text-xl font-black text-white tracking-tighter"
-            >
+            <Link href="/" className="text-xl font-black tracking-tighter">
               REX MARINE
             </Link>
           </motion.div>
@@ -125,7 +122,7 @@ export default function Header() {
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "300px" }}
+            animate={{ opacity: 1, height: "420px" }}
             exit={{ opacity: 0, height: 0 }}
             className="lg:hidden bg-white border-t border-gray-200 shadow-lg"
           >
