@@ -22,7 +22,7 @@ export default function Header() {
 
   const navLinks = [
     { name: "SERVICES" },
-    { name: "SHIPPING RATES" },
+    { name: "SHIPPING RATES", href: "/rates" },
     { name: "SCHEDULE", href: "/schedule" },
     { name: "CONTACT" },
   ];

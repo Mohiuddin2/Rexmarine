@@ -14,7 +14,7 @@ type Props = {
 
 export function ScheduleFilters({ origin, destination, date, setOrigin, setDestination, setDate, onSearch }: Props) {
   return (
-    <Card className="bg-neutral-900 border-white/10">
+    <Card className="bg-[#0B192C] border-2 border-white/10">
       <CardHeader>
         <CardTitle className="text-white">Find Sailings</CardTitle>
       </CardHeader>
@@ -26,7 +26,7 @@ export function ScheduleFilters({ origin, destination, date, setOrigin, setDesti
               value={origin}
               onChange={(e) => setOrigin(e.target.value)}
               placeholder="e.g. Miami, FL"
-              className="bg-black/40 border-white/10 text-white placeholder:text-gray-500"
+              className="bg-[#0B192C] border-2 border-white/10 text-white placeholder:text-gray-400 focus:border-[#3a67e2]"
             />
           </div>
           <div className="md:col-span-1">
@@ -35,7 +35,7 @@ export function ScheduleFilters({ origin, destination, date, setOrigin, setDesti
               value={destination}
               onChange={(e) => setDestination(e.target.value)}
               placeholder="e.g. Nassau, Bahamas"
-              className="bg-black/40 border-white/10 text-white placeholder:text-gray-500"
+              className="bg-[#0B192C] border-2 border-white/10 text-white placeholder:text-gray-400 focus:border-[#3a67e2]"
             />
           </div>
           <div className="md:col-span-1">
@@ -44,7 +44,7 @@ export function ScheduleFilters({ origin, destination, date, setOrigin, setDesti
               type="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
-              className="bg-black/40 border-white/10 text-white"
+              className="bg-[#0B192C] border-2 border-white/10 text-white focus:border-[#3a67e2]"
             />
           </div>
           <div className="md:col-span-1 flex items-end">
@@ -55,6 +55,7 @@ export function ScheduleFilters({ origin, destination, date, setOrigin, setDesti
     </Card>
   );
 }
+
 
 
 

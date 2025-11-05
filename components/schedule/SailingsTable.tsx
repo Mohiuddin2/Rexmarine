@@ -11,19 +11,19 @@ export function SailingsTable({ sailings }: Props) {
     <div className="w-full overflow-x-auto">
       <Table>
         <TableHeader>
-          <TableRow className="border-white/10">
-            <TableHead className="text-gray-300">Service</TableHead>
-            <TableHead className="text-gray-300">Vessel</TableHead>
-            <TableHead className="text-gray-300">Departure</TableHead>
-            <TableHead className="text-gray-300">Arrival</TableHead>
-            <TableHead className="text-gray-300">Transit</TableHead>
-            <TableHead className="text-gray-300">Status</TableHead>
-            <TableHead className="text-gray-300 text-right">Action</TableHead>
+          <TableRow className="border-2 border-white/10">
+            <TableHead className="text-gray-300 font-bold">Service</TableHead>
+            <TableHead className="text-gray-300 font-bold">Vessel</TableHead>
+            <TableHead className="text-gray-300 font-bold">Departure</TableHead>
+            <TableHead className="text-gray-300 font-bold">Arrival</TableHead>
+            <TableHead className="text-gray-300 font-bold">Transit</TableHead>
+            <TableHead className="text-gray-300 font-bold">Status</TableHead>
+            {/* <TableHead className="text-gray-300 text-right">Action</TableHead> */}
           </TableRow>
         </TableHeader>
         <TableBody>
           {sailings.map((sailing) => (
-            <TableRow key={sailing.id} className="border-white/10">
+            <TableRow key={sailing.id} className="border-2 border-white/10 hover:border-[#3a67e2]/50 transition-colors">
               <TableCell className="text-white">{sailing.service}</TableCell>
               <TableCell className="text-white">{sailing.vessel}</TableCell>
               <TableCell className="text-gray-300">
@@ -48,9 +48,9 @@ export function SailingsTable({ sailings }: Props) {
                   {sailing.status}
                 </span>
               </TableCell>
-              <TableCell className="text-right">
+              {/* <TableCell className="text-right">
                 <Button className="bg-[#3a67e2] hover:bg-[#3a67e2]/90 text-black font-bold rounded-none">Book</Button>
-              </TableCell>
+              </TableCell> */}
             </TableRow>
           ))}
           {sailings.length === 0 && (
@@ -65,6 +65,7 @@ export function SailingsTable({ sailings }: Props) {
     </div>
   );
 }
+
 
 
 
