@@ -20,7 +20,7 @@ export function HelpSection() {
               <span className="text-white font-semibold">Email:</span> customercare@rexmarine.com
             </li>
             <li>
-              <span className="text-white font-semibold">Address:</span> 501 Santa Matirn , FL 33404-6902
+              <span className="text-white font-semibold">Address:</span> Saint Martin
             </li>
           </ul>
         </CardContent>                   

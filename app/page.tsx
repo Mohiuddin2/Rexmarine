@@ -10,7 +10,7 @@ import WhyChooseSection from "@/components/WhyChooseSection";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-[#0B192C] text-white">
       <HeroSection />
       <ServicesSection />
       <HowItWorksSection />

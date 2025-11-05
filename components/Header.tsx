@@ -77,9 +77,11 @@ export default function Header() {
             animate={{ opacity: 1, x: 0 }}
             className="hidden lg:flex items-center gap-4"
           >
-            <Button className="bg-lime-500 hover:bg-lime-600 text-white font-bold rounded-none">
-              GET QUOTE
-            </Button>
+            <Link href="/get-a-quote">
+              <Button className="bg-lime-500 hover:bg-lime-600 text-white font-bold rounded-none">
+                GET QUOTE
+              </Button>
+            </Link>
             {!session?.user ? (
               <>
                 <Link href="/signin">
@@ -137,9 +139,11 @@ export default function Header() {
                   {link.name}
                 </a>
               ))}
-              <Button className="bg-lime-500 hover:bg-lime-600 text-white font-bold rounded-none w-full">
-                GET QUOTE
-              </Button>
+              <Link href="/get-a-quote" onClick={() => setIsMobileMenuOpen(false)}>
+                <Button className="bg-lime-500 hover:bg-lime-600 text-white font-bold rounded-none w-full">
+                  GET QUOTE
+                </Button>
+              </Link>
               <Button className="border-2 border-lime-500 text-lime-600 hover:bg-lime-50 font-bold rounded-none w-full">
                 Create Account
               </Button>

@@ -87,7 +87,7 @@ export function ContactSection() {
               <MapPin className="w-8 h-8 text-[#3a67e2]" />
               <div>
                 <div className="text-xs text-gray-500 font-mono mb-1">ADDRESS</div>
-                <div className="text-sm font-semibold text-white">501 Santa Martin, FL 33404-6902</div>
+                <div className="text-sm font-semibold text-white">Saint Martin</div>
               </div>
             </div>
           </CardContent>
