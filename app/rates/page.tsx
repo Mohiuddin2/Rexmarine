@@ -3,7 +3,6 @@
 import { Breadcrumbs, PageHeader } from "@/components/rates/Breadcrumbs";
 import { ImportantNotice } from "@/components/rates/ImportantNotice";
 import { SeaFreightRates } from "@/components/rates/SeaFreightRates";
-import { AirFreightRates } from "@/components/rates/AirFreightRates";
 
 export default function RatesPage() {
   return (
@@ -18,9 +17,7 @@ export default function RatesPage() {
           <SeaFreightRates />
         </div>
 
-        <div className="my-12">
-          <AirFreightRates />
-        </div>
+        {/* Air freight not offered */}
       </section>
     </main>
   );
