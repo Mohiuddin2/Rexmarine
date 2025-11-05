@@ -20,7 +20,7 @@ export default function HeroSection() {
     <section
       className="relative min-h-screen flex items-center overflow-hidden bg-gray-900"
       style={{
-        backgroundImage: "url('/images/ship4.png')",
+        backgroundImage: "url('/images/ship5.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -80,7 +80,7 @@ export default function HeroSection() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-2 border-white text-white hover:bg-white hover:text-gray-900 text-lg px-8 py-7 h-auto font-bold rounded-none"
+                  className="border-2 border-white text-black hover:bg-white hover:text-gray-900 text-lg px-8 py-7 h-auto font-bold rounded-none"
                 >
                   TRACK ORDER
                 </Button>
