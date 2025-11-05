@@ -22,9 +22,10 @@ export default function Header() {
 
   const navLinks = [
     { name: "SERVICES" },
-    { name: "SHIPPING RATES" },
+    { name: "SHIPPING RATES", href: "/rates" },
     { name: "SCHEDULE", href: "/schedule" },
-    { name: "CONTACT" },
+    { name: "CONTACT", href: "/contact" },
+    { name: "RATES", href: "/rates" },
   ];
 
   return (
@@ -47,13 +48,12 @@ export default function Header() {
             <div className="w-10 h-10 bg-lime-500 flex items-center justify-center">
               <Ship className="h-5 w-5 text-white rotate-45" />
             </div>
-            <span
-              className={`text-xl font-black tracking-tighter transition-colors ${
-                isScrolled ? "text-gray-900" : "text-white"
-              }`}
+            <Link
+              href="/"
+              className="text-xl font-black text-white tracking-tighter"
             >
-              REXMARINE
-            </span>
+              REX MARINE
+            </Link>
           </motion.div>
 
           <nav className="hidden lg:flex items-center gap-8">
