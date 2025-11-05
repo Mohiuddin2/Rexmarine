@@ -39,11 +39,11 @@ export default function OceanFreightForwardingPage() {
               FCL/LCL weekly sailings to the Caribbean, Gulf Coast countries, and Central America.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <Link href="/contact">
+              <Link href="/get-a-quote">
                 <Button className="bg-[#3a67e2] hover:bg-[#3a67e2]/90 text-black font-bold rounded-none px-8">Get a Quote</Button>
               </Link>
-              <a href="tel:+19543816229">
-                <Button variant="outline" className="border-2 border-white text-black hover:bg-white/90 hover:text-black font-bold rounded-none px-8">(954) 381-6229</Button>
+              <a href="tel:+14078666667">
+                <Button variant="outline" className="border-2 border-white text-black hover:bg-white/90 hover:text-black font-bold rounded-none px-8">+14078666667</Button>
               </a>
             </div>
           </div>
@@ -101,12 +101,12 @@ export default function OceanFreightForwardingPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <div className="text-xs text-gray-500 font-mono mb-1">Get a Quote</div>
-                  <div className="text-2xl font-black text-[#0B192C]">(954) 381-6229</div>
+                  <div className="text-2xl font-black text-[#0B192C]">+14078666667</div>
                 </div>
                 <Phone className="w-8 h-8 text-[#3a67e2]" />
               </div>
               <div className="mt-4 flex gap-3">
-                <Link href="/contact">
+                <Link href="/get-a-quote">
                   <Button className="bg-[#3a67e2] hover:bg-[#3a67e2]/90 text-black font-bold rounded-none">Get a Quote</Button>
                 </Link>
                 <Link href="/rates">
@@ -185,8 +185,8 @@ export default function OceanFreightForwardingPage() {
                 <Link href="/contact">
                   <Button className="bg-[#3a67e2] hover:bg-[#3a67e2]/90 text-black font-bold rounded-none">Get a Quote</Button>
                 </Link>
-                <a href="tel:+19543816229">
-                  <Button variant="outline" className="border-2 border-white text-black hover:bg-white/90 hover:text-black font-bold rounded-none">(954) 381-6229</Button>
+                <a href="tel:+14078666667">
+                  <Button variant="outline" className="border-2 border-white text-black hover:bg-white/90 hover:text-black font-bold rounded-none">+14078666667</Button>
                 </a>
               </div>
             </div>

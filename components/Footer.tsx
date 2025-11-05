@@ -39,11 +39,11 @@ export default function Footer() {
 
             <div className="space-y-4">
               <a
-                href="tel:+13055550100"
+                href="tel:+14078666667"
                 className="flex items-center gap-3 text-gray-300 hover:text-lime-400 transition-colors group"
               >
                 <Phone className="h-5 w-5" />
-                <span className="font-mono text-sm">+1 305 555 0100</span>
+                <span className="font-mono text-sm">+14078666667</span>
               </a>
               <a
                 href="mailto:ship@rexmarine.com"
@@ -54,11 +54,7 @@ export default function Footer() {
               </a>
               <div className="flex items-start gap-3 text-gray-300">
                 <MapPin className="h-5 w-5 mt-1" />
-                <span className="font-mono text-sm">
-                  123 OCEAN DRIVE
-                  <br />
-                  MIAMI FL 33139
-                </span>
+                <span className="font-mono text-sm">Saint Martin</span>
               </div>
             </div>
           </div>

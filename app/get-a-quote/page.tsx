@@ -120,8 +120,8 @@ export default function GetAQuotePage() {
 
                 <div className="flex items-center gap-3">
                   <Button type="submit" className="bg-[#3a67e2] hover:bg-[#3a67e2]/90 text-black font-bold rounded-none">Submit</Button>
-                  <Link href="tel:+19543816229" className="text-sm text-[#0B192C] underline">
-                    or call (954) 381-6229
+                  <Link href="tel:+14078666667" className="text-sm text-[#0B192C] underline">
+                    or call +14078666667
                   </Link>
                 </div>
               </form>
@@ -136,11 +136,11 @@ export default function GetAQuotePage() {
             <CardContent className="space-y-4 text-sm text-gray-700">
               <div>
                 <div className="text-xs text-gray-500 font-mono mb-1">ADDRESS</div>
-                <div>3387 SW 13th Ave., Fort Lauderdale, Florida 33315</div>
+                <div>Saint Martin</div>
               </div>
               <div>
                 <div className="text-xs text-gray-500 font-mono mb-1">PHONE</div>
-                <Link href="tel:+19543816229" className="font-semibold text-[#0B192C]">(954) 381-6229</Link>
+                <Link href="tel:+14078666667" className="font-semibold text-[#0B192C]">+14078666667</Link>
               </div>
             </CardContent>
           </Card>
