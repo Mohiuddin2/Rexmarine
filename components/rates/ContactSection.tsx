@@ -5,53 +5,14 @@ import Link from "next/link";
 export function ContactSection() {
   const locations = [
     {
-      name: "St. Lucia",
+      name: "Miami, FL",
       hours: [
         "Monday - Friday: 8:30 am - 5:00 pm",
         "Saturday: 9:00 am - 1:00 pm",
         "Sunday: Open Peak Season Only",
       ],
     },
-    {
-      name: "Cayman Islands",
-      hours: [
-        "Monday - Friday: 12:00 pm - 6:00 pm",
-        "Saturday: 9:00 am - 2:00 pm",
-        "Sunday: Closed",
-      ],
-    },
-    {
-      name: "Dominica",
-      hours: [
-        "Monday - Friday: 9:00 am - 4:00 pm",
-        "Saturday: 9:00 am - 2:00 pm",
-        "Sunday: Closed",
-      ],
-    },
-    {
-      name: "St. Thomas",
-      hours: [
-        "Monday - Friday: 12:00 pm - 7:00 pm",
-        "Saturday: 9:00 am - 6:00 pm",
-        "Sunday: Appointments Only",
-      ],
-    },
-    {
-      name: "Island Park, NY",
-      hours: [
-        "Monday - Friday: 9:30 am - 6:00 pm",
-        "Saturday: 9:00 am - 12:30 pm",
-        "Sunday: Appointments Only",
-      ],
-    },
-    {
-      name: "Trinidad",
-      hours: [
-        "Monday - Friday: 9:00 am - 5:00 pm",
-        "Saturday: 10:00 am - 1:00 pm",
-        "Sunday: Open Peak Season Only",
-      ],
-    },
+   
   ];
 
   return (
@@ -102,7 +63,7 @@ export function ContactSection() {
               <Phone className="w-8 h-8 text-[#3a67e2]" />
               <div>
                 <div className="text-xs text-gray-500 font-mono mb-1">CALL FOR A QUOTE</div>
-                <div className="text-2xl font-black text-white">(954) 397-3560</div>
+                <div className="text-2xl font-black text-white">(954) 1234456</div>
               </div>
             </div>
           </CardContent>

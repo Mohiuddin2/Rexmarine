@@ -24,7 +24,7 @@ export default function Header() {
     { name: "SERVICES" },
     { name: "SHIPPING RATES", href: "/rates" },
     { name: "SCHEDULE", href: "/schedule" },
-    { name: "CONTACT" },
+    { name: "CONTACT", href: "/contact" },
   ];
 
   return (
