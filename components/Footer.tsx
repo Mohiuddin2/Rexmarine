@@ -34,7 +34,7 @@ export default function Footer() {
             </div>
 
             <p className="text-gray-300 font-light mb-8">
-              Caribbean&apos;s boldest cargo service since 2008.
+              Caribbean&apos;s boldest cargo service since 2024.
             </p>
 
             <div className="space-y-4">
