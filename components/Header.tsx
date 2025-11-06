@@ -46,14 +46,18 @@ export default function Header() {
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center gap-3"
           >
-            <Link href="/" className="flex items-center gap-3 mt-5">
-              <Image
-                src="/images/logo.png"
-                alt="Rex Marine"
-                width={140}
-                height={40}
-                priority
-              />
+            {/* <div className="w-10 h-10 bg-lime-500 flex items-center justify-center">
+              <Ship className="h-5 w-5 text-white rotate-45" />
+            </div> */}
+            <Image
+              src="/logo/logo.svg"
+              alt="REX MARINE"
+              width={60}
+              height={60}
+              className="object-contain"
+            />
+            <Link href="/" className="text-xl font-black tracking-tighter">
+              REX MARINE
             </Link>
           </motion.div>
 
@@ -143,7 +147,10 @@ export default function Header() {
                   {link.name}
                 </a>
               ))}
-              <Link href="/get-a-quote" onClick={() => setIsMobileMenuOpen(false)}>
+              <Link
+                href="/get-a-quote"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
                 <Button className="bg-lime-500 hover:bg-lime-600 text-white font-bold rounded-none w-full">
                   GET QUOTE
                 </Button>
