@@ -15,7 +15,7 @@ export default async function Home() {
 
   console.log("Session:", session);
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-[#0B192C] text-white">
       <HeroSection />
       <ServicesSection />
       <HowItWorksSection />
