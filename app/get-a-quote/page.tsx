@@ -1,21 +1,90 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
+import { useToast } from "@/hooks/use-toast";
 
 export default function GetAQuotePage() {
   const [services, setServices] = useState<string[]>([]);
+  const [locationType, setLocationType] = useState<"Business" | "Residence" | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   const toggleService = (value: string) => {
     setServices((prev) =>
       prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]
     );
+  };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    const firstName = formData.get("firstName") as string;
+    const lastName = formData.get("lastName") as string;
+    const email = formData.get("email") as string;
+    const phone = formData.get("phone") as string;
+    const additionalDetails = formData.get("details") as string;
+
+    // Validate location type
+    if (!locationType) {
+      toast({
+        title: "Validation Error",
+        description: "Please select a location type",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      const response = await fetch("/api/get-a-quote", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email,
+          phone,
+          locationType,
+          services,
+          additionalDetails,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to submit quote request");
+      }
+
+      toast({
+        title: "Success!",
+        description: "Thank you! We received your request and will reach out shortly.",
+      });
+
+      // Reset form
+      e.currentTarget.reset();
+      setServices([]);
+      setLocationType(null);
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: error instanceof Error ? error.message : "Failed to submit quote request. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -54,10 +123,7 @@ export default function GetAQuotePage() {
             </CardHeader>
             <CardContent>
               <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  alert("Thank you! We received your request and will reach out shortly.");
-                }}
+                onSubmit={handleSubmit}
                 className="space-y-6"
               >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -85,10 +151,28 @@ export default function GetAQuotePage() {
                 <div>
                   <Label>Location type</Label>
                   <div className="mt-2 grid grid-cols-2 gap-3">
-                    <button type="button" onClick={() => toggleService("Business")}
-                      className={`border-2 px-3 py-2 text-sm ${services.includes("Business") ? "border-[#3a67e2] text-[#0B192C]" : "border-gray-200 text-gray-600"}`}>Business</button>
-                    <button type="button" onClick={() => toggleService("Residence")}
-                      className={`border-2 px-3 py-2 text-sm ${services.includes("Residence") ? "border-[#3a67e2] text-[#0B192C]" : "border-gray-200 text-gray-600"}`}>Residence</button>
+                    <button
+                      type="button"
+                      onClick={() => setLocationType("Business")}
+                      className={`border-2 px-3 py-2 text-sm transition-colors ${
+                        locationType === "Business"
+                          ? "border-[#3a67e2] bg-[#3a67e2]/10 text-[#0B192C] font-semibold"
+                          : "border-gray-200 text-gray-600 hover:border-gray-300"
+                      }`}
+                    >
+                      Business
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setLocationType("Residence")}
+                      className={`border-2 px-3 py-2 text-sm transition-colors ${
+                        locationType === "Residence"
+                          ? "border-[#3a67e2] bg-[#3a67e2]/10 text-[#0B192C] font-semibold"
+                          : "border-gray-200 text-gray-600 hover:border-gray-300"
+                      }`}
+                    >
+                      Residence
+                    </button>
                   </div>
                 </div>
 
@@ -119,7 +203,13 @@ export default function GetAQuotePage() {
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <Button type="submit" className="bg-[#3a67e2] hover:bg-[#3a67e2]/90 text-black font-bold rounded-none">Submit</Button>
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="bg-[#3a67e2] hover:bg-[#3a67e2]/90 text-black font-bold rounded-none disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? "Submitting..." : "Submit"}
+                  </Button>
                   <Link href="tel:+14078666667" className="text-sm text-[#0B192C] underline">
                     or call +14078666667
                   </Link>
