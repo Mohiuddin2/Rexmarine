@@ -10,7 +10,6 @@ export function ContactSection() {
         "Monday - Sunday: 9:00 am - 10:00 pm",
       ],
     },
-   
   ];
 
   return (

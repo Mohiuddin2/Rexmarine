@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Ship, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -21,7 +22,7 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { name: "SERVICES" },
+    // { name: "SERVICES" },
     { name: "SHIPPING RATES", href: "/rates" },
     { name: "SCHEDULE", href: "/schedule" },
     { name: "CONTACT", href: "/contact" },
@@ -45,11 +46,14 @@ export default function Header() {
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center gap-3"
           >
-            <div className="w-10 h-10 bg-lime-500 flex items-center justify-center">
-              <Ship className="h-5 w-5 text-white rotate-45" />
-            </div>
-            <Link href="/" className="text-xl font-black tracking-tighter">
-              REX MARINE
+            <Link href="/" className="flex items-center gap-3 mt-5">
+              <Image
+                src="/images/logo.png"
+                alt="Rex Marine"
+                width={140}
+                height={40}
+                priority
+              />
             </Link>
           </motion.div>
 

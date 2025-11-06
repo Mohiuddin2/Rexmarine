@@ -23,7 +23,7 @@ export function PageHeader() {
           Pricing
         </span>
       </div>
-      <h1 className="text-3xl lg:text-4xl font-black tracking-tight text-white">Our Rates</h1>
+      <h1 className="text-3xl lg:text-4xl font-black tracking-tight text-lime-500">Our Rates</h1>
       <p className="text-gray-400 mt-2">Transparent pricing for all your shipping needs.</p>
     </div>
   );

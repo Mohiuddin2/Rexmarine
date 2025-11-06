@@ -28,7 +28,7 @@ export function AirFreightRates() {
       <h2 className="text-4xl lg:text-5xl font-black text-white mb-6 leading-none">
         AIR FREIGHT
         <br />
-        <span className="text-white/20">PRICES</span>
+        <span className="text-black">PRICES</span>
       </h2>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
