@@ -6,7 +6,7 @@ import { SeaFreightRates } from "@/components/rates/SeaFreightRates";
 
 export default function RatesPage() {
   return (
-    <main className="min-h-screen bg-[#0B192C] text-white">
+    <main className="min-h-screen bg-white text-foreground">
       <section className="container mx-auto px-6 lg:px-12 py-10 lg:py-14">
         <Breadcrumbs />
         <PageHeader />

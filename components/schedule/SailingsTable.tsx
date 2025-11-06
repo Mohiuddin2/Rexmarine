@@ -11,38 +11,38 @@ export function SailingsTable({ sailings }: Props) {
     <div className="w-full overflow-x-auto">
       <Table>
         <TableHeader>
-          <TableRow className="border-2 border-white/10">
-            <TableHead className="text-gray-300 font-bold">Service</TableHead>
-            <TableHead className="text-gray-300 font-bold">Vessel</TableHead>
-            <TableHead className="text-gray-300 font-bold">Departure</TableHead>
-            <TableHead className="text-gray-300 font-bold">Arrival</TableHead>
-            <TableHead className="text-gray-300 font-bold">Transit</TableHead>
-            <TableHead className="text-gray-300 font-bold">Status</TableHead>
+          <TableRow className="border-2 border-[#3a67e2]/20">
+            <TableHead className="text-[#0B192C] font-bold">Service</TableHead>
+            <TableHead className="text-[#0B192C] font-bold">Vessel</TableHead>
+            <TableHead className="text-[#0B192C] font-bold">Departure</TableHead>
+            <TableHead className="text-[#0B192C] font-bold">Arrival</TableHead>
+            <TableHead className="text-[#0B192C] font-bold">Transit</TableHead>
+            <TableHead className="text-[#0B192C] font-bold">Status</TableHead>
             {/* <TableHead className="text-gray-300 text-right">Action</TableHead> */}
           </TableRow>
         </TableHeader>
         <TableBody>
           {sailings.map((sailing) => (
-            <TableRow key={sailing.id} className="border-2 border-white/10 hover:border-[#3a67e2]/50 transition-colors">
-              <TableCell className="text-white">{sailing.service}</TableCell>
-              <TableCell className="text-white">{sailing.vessel}</TableCell>
-              <TableCell className="text-gray-300">
-                <div className="font-medium text-white">{sailing.departurePort}</div>
-                <div className="text-xs text-gray-400">{new Date(sailing.departureDate).toLocaleString()}</div>
+            <TableRow key={sailing.id} className="border-2 border-[#3a67e2]/10 hover:border-[#3a67e2]/50 transition-colors">
+              <TableCell className="text-slate-800">{sailing.service}</TableCell>
+              <TableCell className="text-slate-800">{sailing.vessel}</TableCell>
+              <TableCell className="text-slate-700">
+                <div className="font-medium text-[#0B192C]">{sailing.departurePort}</div>
+                <div className="text-xs text-gray-500">{new Date(sailing.departureDate).toLocaleString()}</div>
               </TableCell>
-              <TableCell className="text-gray-300">
-                <div className="font-medium text-white">{sailing.arrivalPort}</div>
-                <div className="text-xs text-gray-400">{new Date(sailing.arrivalDate).toLocaleString()}</div>
+              <TableCell className="text-slate-700">
+                <div className="font-medium text-[#0B192C]">{sailing.arrivalPort}</div>
+                <div className="text-xs text-gray-500">{new Date(sailing.arrivalDate).toLocaleString()}</div>
               </TableCell>
-              <TableCell className="text-white">{sailing.transitDays} days</TableCell>
+              <TableCell className="text-slate-800">{sailing.transitDays} days</TableCell>
               <TableCell>
                 <span
                   className={
                     sailing.status === "On Schedule"
-                      ? "text-emerald-400"
+                      ? "text-emerald-600"
                       : sailing.status === "Delayed"
-                      ? "text-yellow-400"
-                      : "text-red-400"
+                      ? "text-yellow-600"
+                      : "text-red-600"
                   }
                 >
                   {sailing.status}
@@ -55,7 +55,7 @@ export function SailingsTable({ sailings }: Props) {
           ))}
           {sailings.length === 0 && (
             <TableRow>
-              <TableCell colSpan={7} className="text-center text-gray-400">
+              <TableCell colSpan={7} className="text-center text-gray-500">
                 No sailings found for your filters.
               </TableCell>
             </TableRow>

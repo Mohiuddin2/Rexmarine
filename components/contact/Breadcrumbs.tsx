@@ -2,13 +2,13 @@ import Link from "next/link";
 
 export function Breadcrumbs() {
   return (
-    <nav className="text-xs text-gray-400 mb-6" aria-label="Breadcrumb">
+    <nav className="text-xs text-gray-500 mb-6" aria-label="Breadcrumb">
       <ol className="flex items-center gap-2">
         <li>
-          <Link href="/" className="hover:text-white transition-colors">Home</Link>
+          <Link href="/" className="hover:text-black transition-colors">Home</Link>
         </li>
         <li className="opacity-50">/</li>
-        <li className="text-gray-200">Contact</li>
+        <li className="text-gray-800">Contact</li>
       </ol>
     </nav>
   );
@@ -23,8 +23,8 @@ export function PageHeader() {
           Get In Touch
         </span>
       </div>
-      <h1 className="text-3xl lg:text-4xl font-black tracking-tight text-white">Contact Us</h1>
-      <p className="text-gray-400 mt-2">Have questions? We're here to help you.</p>
+      <h1 className="text-3xl lg:text-4xl font-black tracking-tight text-[#0B192C]">Contact Us</h1>
+      <p className="text-gray-600 mt-2">Have questions? We're here to help you.</p>
     </div>
   );
 }
