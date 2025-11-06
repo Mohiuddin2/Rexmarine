@@ -24,7 +24,7 @@ export default function SchedulePage() {
   }, [origin, destination, date]);
 
   return (
-    <main className="min-h-screen bg-[#0B192C] text-white">
+    <main className="min-h-screen bg-white text-foreground">
       <section className="container mx-auto px-6 lg:px-12 py-10 lg:py-14">
         <Breadcrumbs />
         <PageHeader />
@@ -39,7 +39,7 @@ export default function SchedulePage() {
         />
 
         <div className="my-8">
-          <Separator className="bg-white/10 h-px" />
+          <Separator className="bg-slate-200 h-px" />
         </div>
 
         <SailingsTable sailings={results as Sailing[]} />

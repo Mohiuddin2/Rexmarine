@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -15,6 +15,7 @@ export default function GetAQuotePage() {
   const [locationType, setLocationType] = useState<"Business" | "Residence" | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const formRef = useRef<HTMLFormElement>(null);
 
   const toggleService = (value: string) => {
     setServices((prev) =>
@@ -26,7 +27,13 @@ export default function GetAQuotePage() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget || formRef.current;
+    if (!form) {
+      setIsSubmitting(false);
+      return;
+    }
+
+    const formData = new FormData(form);
     const firstName = formData.get("firstName") as string;
     const lastName = formData.get("lastName") as string;
     const email = formData.get("email") as string;
@@ -73,7 +80,9 @@ export default function GetAQuotePage() {
       });
 
       // Reset form
-      e.currentTarget.reset();
+      if (form) {
+        form.reset();
+      }
       setServices([]);
       setLocationType(null);
     } catch (error) {
@@ -123,6 +132,7 @@ export default function GetAQuotePage() {
             </CardHeader>
             <CardContent>
               <form
+                ref={formRef}
                 onSubmit={handleSubmit}
                 className="space-y-6"
               >
