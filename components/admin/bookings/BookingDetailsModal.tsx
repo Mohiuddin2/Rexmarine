@@ -70,7 +70,7 @@ const mockStatusHistory = [
     status: "confirmed",
     location: "Saint Martin Hub",
     notes: "Booking confirmed and payment received",
-    updatedBy: "admin@freighttrack.com",
+    updatedBy: "admin@rexmarine.com",
     createdAt: "2025-11-05T10:30:00",
   },
   {
@@ -78,7 +78,7 @@ const mockStatusHistory = [
     status: "picked_up",
     location: "Philipsburg, Saint Martin",
     notes: "Package picked up from sender location",
-    updatedBy: "driver@freighttrack.com",
+    updatedBy: "driver@rexmarine.com",
     createdAt: "2025-11-06T14:20:00",
   },
   {
@@ -86,7 +86,7 @@ const mockStatusHistory = [
     status: "in_transit",
     location: "Caribbean Sea",
     notes: "Package loaded on vessel Caribbean Express",
-    updatedBy: "logistics@freighttrack.com",
+    updatedBy: "logistics@rexmarine.com",
     createdAt: "2025-11-07T08:00:00",
   },
 ];
@@ -266,7 +266,7 @@ export default function BookingDetailModal({ booking, onClose }: Props) {
             </div>
 
             <div className="space-y-6">
-              <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-2xl p-6 text-white sticky top-0">
+              <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-2xl p-6 text-white ">
                 <h3 className="text-xl font-bold mb-4">Update Status</h3>
 
                 <div className="space-y-4">
