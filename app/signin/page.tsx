@@ -17,7 +17,7 @@ const schema = z.object({
 
 type FormValues = z.infer<typeof schema>;
 
-function SignInForm() {
+const SignInForm = () => {
   const router = useRouter();
   const search = useSearchParams();
   const callbackUrl = search.get("callbackUrl") || "/";
@@ -172,5 +172,13 @@ function SignInForm() {
 
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-900/50 to-transparent pointer-events-none" />
     </main>
+  );
+};
+
+export default function SignInPage() {
+  return (
+    <Suspense fallback={<div>Loading sign-in form...</div>}>
+      <SignInForm />
+    </Suspense>
   );
 }
