@@ -7,8 +7,13 @@ import HowItWorksSection from "@/components/HowItWorksSection";
 import ServicesSection from "@/components/ServicesSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import WhyChooseSection from "@/components/WhyChooseSection";
+import { authOptions } from "@/lib/auth";
+import { getServerSession } from "next-auth";
 
-export default function Home() {
+export default async function Home() {
+  const session = await getServerSession(authOptions);
+
+  console.log("Session:", session);
   return (
     <main className="min-h-screen">
       <HeroSection />
@@ -17,7 +22,6 @@ export default function Home() {
       <WhyChooseSection />
       <TestimonialsSection />
       <CTASection />
-      <Footer />
       <FloatingButtons />
     </main>
   );

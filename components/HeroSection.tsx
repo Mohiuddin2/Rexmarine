@@ -4,9 +4,12 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Anchor, Waves } from "lucide-react";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { routerServerGlobal } from "next/dist/server/lib/router-utils/router-server-context";
+import { useRouter } from "next/navigation";
 
 export default function HeroSection() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const router = useRouter();
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -71,6 +74,7 @@ export default function HeroSection() {
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Button
+                  onClick={() => router.push("/booking")}
                   size="lg"
                   className="bg-lime-500 hover:bg-lime-600 text-white text-lg px-8 py-7 h-auto font-bold rounded-none group"
                 >
@@ -78,6 +82,7 @@ export default function HeroSection() {
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform" />
                 </Button>
                 <Button
+                  onClick={() => router.push("/tracking")}
                   size="lg"
                   variant="outline"
                   className="border-2 border-white text-black hover:bg-white hover:text-gray-900 text-lg px-8 py-7 h-auto font-bold rounded-none"

@@ -6,6 +6,7 @@ import { Ship, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
+import Image from "next/image";
 
 export default function Header() {
   const { data: session } = useSession();
@@ -45,9 +46,16 @@ export default function Header() {
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center gap-3"
           >
-            <div className="w-10 h-10 bg-lime-500 flex items-center justify-center">
+            {/* <div className="w-10 h-10 bg-lime-500 flex items-center justify-center">
               <Ship className="h-5 w-5 text-white rotate-45" />
-            </div>
+            </div> */}
+            <Image
+              src="/logo/logo.svg"
+              alt="REX MARINE"
+              width={60}
+              height={60}
+              className="object-contain"
+            />
             <Link href="/" className="text-xl font-black tracking-tighter">
               REX MARINE
             </Link>
