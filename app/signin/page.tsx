@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Mail, Lock, Ship, Anchor } from "lucide-react";
+import { signIn } from "next-auth/react";
 
 const schema = z.object({
   email: z.string().email("Enter a valid email"),
@@ -31,21 +32,21 @@ const SignInForm = () => {
   const onSubmit = async (values: FormValues) => {
     setLoading(true);
 
-    console.log("Submitting", values);
     try {
-      const res = await fetch("/api/auth/signin", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+      const result = await signIn("credentials", {
+        redirect: false,
+        email: values.email,
+        password: values.password,
+        callbackUrl,
       });
 
-      console.log("Response", res);
-
-      if (res.ok) {
-        router.push(callbackUrl);
+      if (result?.error) {
+        alert("Invalid email or password");
         return;
       }
-      alert("Invalid email or password");
+
+      const destination = result?.url ?? callbackUrl;
+      router.push(destination);
     } finally {
       setLoading(false);
     }
