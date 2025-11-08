@@ -326,8 +326,6 @@ const OrderSchema = new Schema<IOrder>(
 );
 
 OrderSchema.index({ customerId: 1, createdAt: -1 });
-OrderSchema.index({ trackingNumber: 1 });
-OrderSchema.index({ bookingNumber: 1 });
 OrderSchema.index({ status: 1, createdAt: -1 });
 OrderSchema.index({ "recipient.email": 1 });
 OrderSchema.index({ "sender.email": 1 });

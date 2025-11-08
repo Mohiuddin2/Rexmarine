@@ -4,14 +4,13 @@ import { Types } from "mongoose";
 import connectToDatabase from "@/lib/mongoose";
 import Order from "@/models/Order";
 
-export async function GET(
-  req: Request,
-  { params }: { params: { customerId: string } }
-) {
+type ParamsPromise = Promise<{ customerId: string }>;
+
+export async function GET(req: Request, context: { params: ParamsPromise }) {
   try {
     await connectToDatabase();
 
-    const { customerId } = params;
+    const { customerId } = await context.params;
     if (!Types.ObjectId.isValid(customerId)) {
       return NextResponse.json({ success: false, message: "Invalid customer id" }, { status: 400 });
     }

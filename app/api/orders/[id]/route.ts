@@ -51,11 +51,13 @@ const updateStatusSchema = z.object({
   isActive: z.boolean().optional(),
 });
 
-export async function GET(_req: Request, { params }: { params: { id: string } }) {
+type ParamsPromise = Promise<{ id: string }>;
+
+export async function GET(_req: Request, context: { params: ParamsPromise }) {
   try {
     await connectToDatabase();
 
-    const { id } = params;
+    const { id } = await context.params;
     if (!Types.ObjectId.isValid(id)) {
       return NextResponse.json({ success: false, message: "Invalid order id" }, { status: 400 });
     }
@@ -75,11 +77,11 @@ export async function GET(_req: Request, { params }: { params: { id: string } })
   }
 }
 
-export async function PATCH(req: Request, { params }: { params: { id: string } }) {
+export async function PATCH(req: Request, context: { params: ParamsPromise }) {
   try {
     await connectToDatabase();
 
-    const { id } = params;
+    const { id } = await context.params;
     if (!Types.ObjectId.isValid(id)) {
       return NextResponse.json({ success: false, message: "Invalid order id" }, { status: 400 });
     }
@@ -149,11 +151,11 @@ export async function PATCH(req: Request, { params }: { params: { id: string } }
   }
 }
 
-export async function DELETE(_req: Request, { params }: { params: { id: string } }) {
+export async function DELETE(_req: Request, context: { params: ParamsPromise }) {
   try {
     await connectToDatabase();
 
-    const { id } = params;
+    const { id } = await context.params;
     if (!Types.ObjectId.isValid(id)) {
       return NextResponse.json({ success: false, message: "Invalid order id" }, { status: 400 });
     }

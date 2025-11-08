@@ -3,14 +3,13 @@ import { NextResponse } from "next/server";
 import connectToDatabase from "@/lib/mongoose";
 import Order from "@/models/Order";
 
-export async function GET(
-  _req: Request,
-  { params }: { params: { trackingNumber: string } }
-) {
+type ParamsPromise = Promise<{ trackingNumber: string }>;
+
+export async function GET(_req: Request, context: { params: ParamsPromise }) {
   try {
     await connectToDatabase();
 
-    const { trackingNumber } = params;
+    const { trackingNumber } = await context.params;
     const sanitizedTrackingNumber = trackingNumber.trim();
 
     if (!sanitizedTrackingNumber) {
